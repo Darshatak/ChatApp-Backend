@@ -9,7 +9,8 @@ const catchAsync = require("../utils/catchAsync");
 // const { transporter } = require("../services/mailer");
 const nodemailer = require("nodemailer");
 
-const signToken = (user) => jwt.sign({ user }, process.env.JWT_SECRET);
+// const signToken = (user) => jwt.sign({ user }, process.env.JWT_SECRET);
+const signToken = (user) => jwt.sign({ user }, "288918912ukjduiujhduiiuewjk18");
 const otp = require("../Templates/Mail/otp");
 const resetPassword = require("../Templates/Mail/resetPassword");
 
@@ -199,7 +200,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     });
   }
   // 2) Verification of token
-  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+  const decoded = await promisify(jwt.verify)(token, "288918912ukjduiujhduiiuewjk18");
 
   // Object.entries(decoded).forEach(([key, value]) => {
   //   console.log(`${key}:`, value);
