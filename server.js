@@ -22,13 +22,13 @@ const FriendRequest = require("./MODELS/friendRequest");
 // Create an io server and allow for CORS from http://localhost:3000 with GET and POST methods
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
+    // origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 });
 
 const DB = "mongodb+srv://Darshatak:Darshatak@cluster0.ysha6ox.mongodb.net/?retryWrites=true&w=majority";
-
 
 mongoose
   .connect(DB, {
@@ -41,7 +41,8 @@ mongoose
     console.log("DB Connection successful");
   });
 
-const port = 3001;
+// const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3001;
 
 server.listen(port, () => {
   console.log(`App running on port ${port} ...`);
