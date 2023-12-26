@@ -27,10 +27,8 @@ const io = new Server(server, {
   },
 });
 
-const DB = process.env.DATABASE.replace(
-  "<PASSWORD>",
-  process.env.DATABASE_PASSWORD
-);
+const DB = "mongodb+srv://Darshatak:Darshatak@cluster0.ysha6ox.mongodb.net/?retryWrites=true&w=majority";
+
 
 mongoose
   .connect(DB, {
@@ -43,7 +41,7 @@ mongoose
     console.log("DB Connection successful");
   });
 
-const port = process.env.PORT || 8000;
+const port = 3001;
 
 server.listen(port, () => {
   console.log(`App running on port ${port} ...`);
